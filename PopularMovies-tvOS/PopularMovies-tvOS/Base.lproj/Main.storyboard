@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13122.16" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15400" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopularMovies_tvOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,12 +19,68 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FBf-9R-2I1">
+                                <rect key="frame" x="0.0" y="0.0" width="1830" height="1020"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9c-cB-uuN">
+                                    <size key="itemSize" width="649" height="851"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="veI-8I-TAY">
+                                        <rect key="frame" x="0.0" y="0.0" width="649" height="851"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d0Q-z8-yzx">
+                                            <rect key="frame" x="0.0" y="0.0" width="649" height="851"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tvOS" translatesAutoresizingMaskIntoConstraints="NO" id="cbL-Ph-t9V">
+                                                    <rect key="frame" x="60" y="25" width="529" height="690"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="690" id="5bY-J2-coI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scarface" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-MN-Fgs">
+                                                    <rect key="frame" x="249" y="755" width="150" height="50"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cbL-Ph-t9V" firstAttribute="leading" secondItem="d0Q-z8-yzx" secondAttribute="leading" constant="60" id="8yF-bW-6x7"/>
+                                                <constraint firstAttribute="trailing" secondItem="lYQ-MN-Fgs" secondAttribute="trailing" constant="250" id="QkQ-kj-aXB"/>
+                                                <constraint firstAttribute="bottom" secondItem="lYQ-MN-Fgs" secondAttribute="bottom" constant="46" id="cAI-vK-63f"/>
+                                                <constraint firstItem="lYQ-MN-Fgs" firstAttribute="top" secondItem="cbL-Ph-t9V" secondAttribute="bottom" constant="40" id="edq-vj-wgh"/>
+                                                <constraint firstAttribute="trailing" secondItem="cbL-Ph-t9V" secondAttribute="trailing" constant="60" id="g8a-xh-w7K"/>
+                                                <constraint firstItem="lYQ-MN-Fgs" firstAttribute="leading" secondItem="d0Q-z8-yzx" secondAttribute="leading" constant="249" id="i2V-uT-ZK6"/>
+                                                <constraint firstItem="cbL-Ph-t9V" firstAttribute="top" secondItem="d0Q-z8-yzx" secondAttribute="top" constant="25" id="j2L-sw-GbM"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="649" height="851"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FBf-9R-2I1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7me-gg-NBm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FBf-9R-2I1" secondAttribute="bottom" id="OrY-GN-5js"/>
+                            <constraint firstItem="wu6-TO-1qx" firstAttribute="trailing" secondItem="FBf-9R-2I1" secondAttribute="trailing" id="eFS-OB-mWS"/>
+                            <constraint firstItem="FBf-9R-2I1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="whe-ku-8cA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="80" y="69"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tvOS" width="1423" height="2091"/>
+    </resources>
 </document>
