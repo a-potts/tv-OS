@@ -16,11 +16,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
 
+    var movies = [Movie]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadData()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     func downloadData(){
@@ -38,7 +41,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     if let results = dict!["results"] as? [Dictionary<String, AnyObject>] {
                         
-                        print(results)
+                        for obj in results {
+                            let movie = Movie(movieDict: obj)
+                            self.movies.append(movie)
+                        }
+                        
+                        //Main UI Thread
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
                         
                     }
                     
@@ -64,7 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
