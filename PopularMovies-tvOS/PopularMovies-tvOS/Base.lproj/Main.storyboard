@@ -21,16 +21,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FBf-9R-2I1">
-                                <rect key="frame" x="0.0" y="0.0" width="1830" height="1020"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9c-cB-uuN">
-                                    <size key="itemSize" width="649" height="851"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="I9c-cB-uuN">
+                                    <size key="itemSize" width="1920" height="1080"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="veI-8I-TAY" customClass="MovieCell" customModule="PopularMovies_tvOS" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="veI-8I-TAY" customClass="MovieCell" customModule="PopularMovies_tvOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="649" height="851"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d0Q-z8-yzx">
@@ -72,8 +72,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FBf-9R-2I1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7me-gg-NBm"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FBf-9R-2I1" secondAttribute="bottom" id="OrY-GN-5js"/>
-                            <constraint firstItem="wu6-TO-1qx" firstAttribute="trailing" secondItem="FBf-9R-2I1" secondAttribute="trailing" id="eFS-OB-mWS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FBf-9R-2I1" secondAttribute="bottom" constant="-60" id="OrY-GN-5js"/>
+                            <constraint firstItem="wu6-TO-1qx" firstAttribute="trailing" secondItem="FBf-9R-2I1" secondAttribute="trailing" constant="-90" id="eFS-OB-mWS"/>
                             <constraint firstItem="FBf-9R-2I1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="whe-ku-8cA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>

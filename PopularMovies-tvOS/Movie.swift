@@ -24,7 +24,7 @@ class Movie {
             self.overview = overview
         }
         if let path = movieDict["poster_path"] as? String {
-            self.posterPath = "\(baseURL) \(path)"
+            self.posterPath = "\(baseURL)\(path)"
         }
     }
 }

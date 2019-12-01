@@ -66,7 +66,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as? MovieCell {
+            
+            let movie = movies[indexPath.row]
+            cell.configureCell(movie: movie)
+            return cell
+        } else {
+        
+        return MovieCell()
+        }
     }
    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
