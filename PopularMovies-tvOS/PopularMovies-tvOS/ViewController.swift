@@ -17,6 +17,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
 
     var movies = [Movie]()
+    let defaultSize = CGSize(width: 265, height: 490)
+    let focusSize = CGSize(width: 290, height: 530)
+    //264 490
     
     
     override func viewDidLoad() {
@@ -71,6 +74,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             let movie = movies[indexPath.row]
             cell.configureCell(movie: movie)
+            
+            if cell.gestureRecognizers?.count == nil {
+                let tap = UITapGestureRecognizer(target: self, action: Selector(("tapped:")))
+                tap.allowedPressTypes = [NSNumber(value: UIPress.PressType.select.rawValue)]
+                cell.addGestureRecognizer(tap)
+            }
+            
             return cell
         } else {
         
@@ -78,6 +88,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
    
+    func tapped(gesture: UITapGestureRecognizer){
+        if let cell = gesture.view as? MovieCell {
+            //Load next view controller
+            print("Tapped")
+        }
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
@@ -91,5 +108,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return  CGSize(width: 385, height: 601)
     }
     
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if let prev = context.previouslyFocusedView as? MovieCell {
+            UIView.animate(withDuration: 0.1, animations:{ ()-> Void in
+                prev.movieImage.frame.size = self.defaultSize
+            })
+        }
+        if let next = context.nextFocusedView as? MovieCell {
+        UIView.animate(withDuration: 0.1, animations:{ ()-> Void in
+            next.movieImage.frame.size = self.focusSize
+        })
+    }
+    
+  }
 }
 
